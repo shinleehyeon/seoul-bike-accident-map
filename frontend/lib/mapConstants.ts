@@ -1,4 +1,4 @@
-import type { Map as MapLibreMap, StyleSpecification } from "maplibre-gl";
+import type { Map as MapLibreMap } from "maplibre-gl";
 
 export const ACCIDENT_ICON_BY_TYPE: Record<string, string> = {
   자전거: "pin-accident-bike",
@@ -50,25 +50,8 @@ export async function ensureAccidentIcons(map: MapLibreMap) {
   );
 }
 
-export const MAP_STYLE: StyleSpecification = {
-  version: 8,
-  glyphs: "https://demotiles.maplibre.org/font/{fontstack}/{range}.pbf",
-  sources: {
-    "carto-positron": {
-      type: "raster",
-      tiles: [
-        "https://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png",
-        "https://b.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png",
-        "https://c.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png",
-        "https://d.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png",
-      ],
-      tileSize: 256,
-      attribution:
-        '&copy; <a href="https://carto.com/attributions">CARTO</a> &copy; OpenStreetMap contributors',
-    },
-  },
-  layers: [{ id: "carto-positron-layer", type: "raster", source: "carto-positron" }],
-};
+/** OpenFreeMap Positron — CARTO light_all과 비슷한 밝은 베이스맵, API 키 불필요 */
+export const MAP_STYLE = "https://tiles.openfreemap.org/styles/positron";
 
 export const SEOUL_CENTER = { longitude: 126.978, latitude: 37.5665, zoom: 11 };
 

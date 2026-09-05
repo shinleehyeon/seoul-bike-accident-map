@@ -173,7 +173,7 @@ export function BikeAccidentClusterLayer({
         layout={{
           "text-field": ["get", "point_count_abbreviated"],
           "text-size": 12,
-          "text-font": ["Open Sans Regular"],
+          "text-font": ["Noto Sans Regular"],
           visibility: visible ? "visible" : "none",
         }}
         paint={{ "text-color": "#1f2937" }}
